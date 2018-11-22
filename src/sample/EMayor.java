@@ -66,4 +66,15 @@ public class EMayor extends Embarazada {
     public void setAmneosentesis(String amneosentesis) {
         this.amneosentesis = amneosentesis;
     }
+
+    public String toString()
+    {
+        String String;
+
+        //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
+
+        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen Amneosentesis : " + getAmneosentesis();
+
+        return String;
+    }
 }

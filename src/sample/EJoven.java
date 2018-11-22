@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class EJoven extends Embarazada {
 
+
     private int edad;
 
     EJoven()
@@ -45,10 +46,29 @@ public class EJoven extends Embarazada {
         super.setListexamen(plistexamen);
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     @Override
     public boolean getRiesgos ()
     {
         return edad<=18 && edad >=16;
+    }
+
+    public String toString()
+    {
+        String String;
+
+        //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
+
+        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Edad: " + getEdad();
+
+        return String;
     }
 
 }

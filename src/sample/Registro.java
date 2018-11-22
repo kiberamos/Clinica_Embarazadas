@@ -181,29 +181,27 @@ public class Registro
     {
         if(radTension.isSelected())
         {
-            cEmbarazadaTalta embtalta = new cEmbarazadaTalta (NombresField.getText(),Integer.valueOf(Thistorial.getText()),exmas,Integer.valueOf(Edad.getText()));
-            Hospital.addEmbarazada(embtalta);
-            Edad.clear();
-
-            EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,)
-
+            EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtTension.getText()));
+            System.out.println(embten.toString());
         }
 
         if(radMenor.isSelected())
         {
-            EJoven embjov = new EJoven(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txt));
+            EJoven embjov = new EJoven(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtEdad.getText()));
+            System.out.println(embjov.toString());
         }
 
         if(radMayor.isSelected())
         {
-
+            EMayor embmay =  new EMayor(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,cmbAmeno.getSelectionModel().getSelectedItem().toString());
+           // cmbAmeno.getValue()
+            System.out.println(embmay.toString());
         }
 
         if(radDiabetes.isSelected())
         {
-
-
-
+            EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()));
+            System.out.println(embdia.toString());
         }
     }
 
@@ -238,6 +236,10 @@ public class Registro
 
         btnagrEmbarazada.setOnAction((event) -> {
             AgregarExamen();
+        });
+
+        btnNext.setOnAction((event) -> {
+            AgrergarEmbarazada();
         });
 
         btnShowexam.setOnAction((event) -> {

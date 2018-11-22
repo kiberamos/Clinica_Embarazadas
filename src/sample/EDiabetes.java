@@ -82,4 +82,15 @@ public class EDiabetes extends Embarazada implements ExamenesAdicionales {
     @Override
     public String getCondicion(){return "Diabetica";}
 
+    public String toString()
+    {
+        String String;
+
+        //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
+
+        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen PTG : " + getPTG();
+
+        return String;
+    }
+
 }

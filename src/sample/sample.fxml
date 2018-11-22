@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="392.0" prefWidth="309.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane fx:id="rootPane" prefHeight="418.0" prefWidth="309.0">
+         <children>
+            <Button layoutX="80.0" layoutY="139.0" mnemonicParsing="false" onAction="#newpageRegistro" text="Registro de Embarazadas" />
+            <Button fx:id="btnExamenesA" layoutX="89.0" layoutY="205.0" mnemonicParsing="false" onAction="#newpageAdicional" text="Examenes Adicionales" />
+            <Button fx:id="btnResultados" layoutX="70.0" layoutY="268.0" mnemonicParsing="false" onAction="#newpageResultados" text="Resultados de Emabarazadas" />
+            <Label layoutX="32.0" layoutY="57.0" text="Prevencion de Embarazadas" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+</GridPane>

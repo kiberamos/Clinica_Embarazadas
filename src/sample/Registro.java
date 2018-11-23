@@ -97,12 +97,49 @@ public class Registro implements Initializable
         void cerrar()
         {
 
+            if(radTension.isSelected())
+            {
+                EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtTension.getText()));
+                System.out.println(embten.toString());
+                stage1_controller_en_stage2.recibeparametros(embten);
+                Stage stage = (Stage) btnNext.getScene().getWindow();
+                stage.close();
+            }
+
+            if(radMenor.isSelected())
+            {
+                EJoven embjov = new EJoven(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtEdad.getText()));
+                System.out.println(embjov.toString());
+                stage1_controller_en_stage2.recibeparametros(embjov);
+                Stage stage = (Stage) btnNext.getScene().getWindow();
+                stage.close();
+            }
+
+            if(radMayor.isSelected())
+            {
+                EMayor embmay =  new EMayor(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,cmbAmeno.getSelectionModel().getSelectedItem().toString());
+                // cmbAmeno.getValue()
+                System.out.println(embmay.toString());
+                stage1_controller_en_stage2.recibeparametros(embmay);
+                Stage stage = (Stage) btnNext.getScene().getWindow();
+                stage.close();
+            }
+
+            if(radDiabetes.isSelected())
+            {
+                EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()));
+                System.out.println(embdia.toString());
+                stage1_controller_en_stage2.recibeparametros(embdia);
+                Stage stage = (Stage) btnNext.getScene().getWindow();
+                stage.close();
+            }
 
 
-            EHipertension embten = new EHipertension("Sebas",12,exmas,15);
-            stage1_controller_en_stage2.recibeparametros(embten);
-            Stage stage = (Stage) btnNext.getScene().getWindow();
-            stage.close();
+
+           // EHipertension embten = new EHipertension("Sebas",12,exmas,15);
+           // stage1_controller_en_stage2.recibeparametros(embten);
+            //Stage stage = (Stage) btnNext.getScene().getWindow();
+           // stage.close();
 
         }
 
@@ -242,10 +279,76 @@ public class Registro implements Initializable
 
 
 
+    @FXML
+    void initialize() {
 
+        btnNext.setVisible(false);
+        txtEdad.setVisible(false);
+        txtPTG.setVisible(false);
+        txtTension.setVisible(false);
+        cmbAmeno.setVisible(false);
+        lblinstruc.setVisible(false);
+        lbledad.setVisible(false);
+        lblPTG.setVisible(false);
+        lblTension.setVisible(false);
+        lblamneo.setVisible(false);
+        lbledad2.setVisible(false);
+        lblPTG2.setVisible(false);
+        lblTension2.setVisible(false);
+        radDiabetes.setVisible(false);
+        radMayor.setVisible(false);
+        radMenor.setVisible(false);
+        radTension.setVisible(false);
+        cmbExamnRutina.setItems(rutinalist);
+        cmbAmeno.setItems(amneolist);
+
+
+
+
+        btnagrEmbarazada.setOnAction((event) -> {
+            AgregarExamen();
+        });
+
+
+        btnShowexam.setOnAction((event) -> {
+            showexamenes();
+        });
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        btnNext.setVisible(false);
+        txtEdad.setVisible(false);
+        txtPTG.setVisible(false);
+        txtTension.setVisible(false);
+        cmbAmeno.setVisible(false);
+        lblinstruc.setVisible(false);
+        lbledad.setVisible(false);
+        lblPTG.setVisible(false);
+        lblTension.setVisible(false);
+        lblamneo.setVisible(false);
+        lbledad2.setVisible(false);
+        lblPTG2.setVisible(false);
+        lblTension2.setVisible(false);
+        radDiabetes.setVisible(false);
+        radMayor.setVisible(false);
+        radMenor.setVisible(false);
+        radTension.setVisible(false);
+        cmbExamnRutina.setItems(rutinalist);
+        cmbAmeno.setItems(amneolist);
 
+
+
+
+        btnagrEmbarazada.setOnAction((event) -> {
+            AgregarExamen();
+        });
+
+        btnShowexam.setOnAction((event) -> {
+            showexamenes();
+        });
     }
 }
+
+

@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -20,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
-public class Registro
+public class Registro implements Initializable
 {
     @FXML
     private AnchorPane anc;
@@ -76,6 +77,39 @@ public class Registro
     ArrayList<Examen> exmas = new ArrayList();
     ObservableList<String> amneolist = FXCollections.observableArrayList("Positivo","Negativo");
     ObservableList<String> rutinalist = FXCollections.observableArrayList("Positivo","Negativo");
+
+
+    //____________________________________Paso de Datos_________________________________________________________________
+
+        Controller stage1_controller_en_stage2;
+
+        @FXML
+        public void recibeparametros(Controller stage1,String texto)
+        {
+
+            txtNombre.setText(texto);
+            EHipertension embten = new EHipertension("Sebas",12,exmas,15);
+            //emb = embten;
+            stage1_controller_en_stage2 = stage1;
+        }
+
+        @FXML
+        void cerrar()
+        {
+
+
+
+            EHipertension embten = new EHipertension("Sebas",12,exmas,15);
+            stage1_controller_en_stage2.recibeparametros(embten);
+            Stage stage = (Stage) btnNext.getScene().getWindow();
+            stage.close();
+
+        }
+
+
+    //____________________________________Se termina Paso de Datos______________________________________________________
+
+
 
 
     public void showexamenes()
@@ -208,43 +242,10 @@ public class Registro
 
 
 
-    @FXML
-    void initialize() {
-
-        btnNext.setVisible(false);
-        txtEdad.setVisible(false);
-        txtPTG.setVisible(false);
-        txtTension.setVisible(false);
-        cmbAmeno.setVisible(false);
-        lblinstruc.setVisible(false);
-        lbledad.setVisible(false);
-        lblPTG.setVisible(false);
-        lblTension.setVisible(false);
-        lblamneo.setVisible(false);
-        lbledad2.setVisible(false);
-        lblPTG2.setVisible(false);
-        lblTension2.setVisible(false);
-        radDiabetes.setVisible(false);
-        radMayor.setVisible(false);
-        radMenor.setVisible(false);
-        radTension.setVisible(false);
-        cmbExamnRutina.setItems(rutinalist);
-        cmbAmeno.setItems(amneolist);
 
 
-
-
-        btnagrEmbarazada.setOnAction((event) -> {
-            AgregarExamen();
-        });
-
-        btnNext.setOnAction((event) -> {
-            AgrergarEmbarazada();
-        });
-
-        btnShowexam.setOnAction((event) -> {
-            showexamenes();
-        });
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 }

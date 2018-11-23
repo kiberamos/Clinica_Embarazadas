@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anc" prefHeight="442.0" prefWidth="509.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Registro">
+<AnchorPane prefHeight="442.0" prefWidth="509.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Registro">
    <children>
       <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" layoutX="62.0" layoutY="14.0" prefHeight="55.0" prefWidth="445.0" text="Para Comenzar se necesita registrar a la Embaraza con su nombre y su numero de historial clinica seguido de los examenes de rutina que se haya realizado durante su estado gestional" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true" />
       <Label layoutX="62.0" layoutY="84.0" text="Nombre" />
@@ -38,7 +38,7 @@
       <Label fx:id="lblPTG" layoutX="222.0" layoutY="347.0" prefHeight="49.0" prefWidth="170.0" text="En este campo debe ingresar el valor del examen PTG" wrapText="true" />
       <Label fx:id="lblTension" layoutX="414.0" layoutY="347.0" prefHeight="49.0" prefWidth="170.0" text="En este campo debe ingresar el valor del examen " wrapText="true" />
       <ComboBox fx:id="cmbAmeno" layoutX="97.0" layoutY="396.0" prefHeight="25.0" prefWidth="93.0" />
-      <Button fx:id="btnNext" layoutX="508.0" layoutY="396.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Next" />
+      <Button fx:id="btnNext" layoutX="508.0" layoutY="396.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="25.0" prefWidth="59.0" text="Next" />
       <Label fx:id="lblamneo" layoutX="14.0" layoutY="400.0" text="Amneosentesis" />
       <Button fx:id="btnShowexam" layoutX="437.0" layoutY="116.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="141.0" text="Una ves que termine de Ingresar todos los examenes                    Haga Click Aqui" wrapText="true" />
    </children>

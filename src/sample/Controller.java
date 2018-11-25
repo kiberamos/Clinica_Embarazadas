@@ -39,6 +39,7 @@ public class Controller implements Initializable {
        // txtprueba.setText(texto);
         emb.add(embara);
         System.out.println(emb.toString());
+
     }
 
     @FXML
@@ -57,11 +58,6 @@ public class Controller implements Initializable {
         stage.show();
 
     }
-
-
-
-
-
 
 //________________________________________________Cambio de Pantallas___________________________________________________
 
@@ -92,6 +88,31 @@ public class Controller implements Initializable {
     }
 //_____________________________________________Fin de Cambio de Pantallas_______________________________________________
 
+
+    @FXML
+    public void instance ()
+    {
+
+        EDiabetes ed = new EDiabetes();
+
+        for(int x=0;x<emb.size();x++) {
+            //System.out.println(emb.get(x).getClass().toString());
+            //System.out.println(emb.get(x).getClass().getName());
+            //System.out.println(emb.get(x).getClass().getPackageName());
+            //System.out.println(emb.get(x).getClass().getTypeName());
+
+            if (emb.get(x).getClass().isInstance(ed)== true)
+            {
+                System.out.println("Siiii lo lograste es diabetica");
+            }else{
+                System.out.println("no no lo se");
+            }
+        }
+
+
+
+
+    }
 
 
     @Override

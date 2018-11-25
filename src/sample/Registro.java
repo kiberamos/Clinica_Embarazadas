@@ -81,6 +81,8 @@ public class Registro implements Initializable
     ObservableList<String> amneolist = FXCollections.observableArrayList("Positivo","Negativo");
     ObservableList<String> rutinalist = FXCollections.observableArrayList("Positivo","Negativo");
     ArrayList<Integer> TensionArterial = new ArrayList<>();
+    private int Glucosa;
+    private int Tension;
 
 
     //____________________________________Paso de Datos_________________________________________________________________
@@ -114,7 +116,8 @@ public class Registro implements Initializable
     @FXML
     public void recibeparametrosten (Integer entero)
     {
-        txtTension.setText(String.valueOf(entero));
+        //txtTension.setText(String.valueOf(entero));
+        Tension = entero;
 
     }
 
@@ -144,7 +147,8 @@ public class Registro implements Initializable
     @FXML
     public void recibeparametrosdia (Integer entero)
     {
-        txtPTG.setText(String.valueOf(entero));
+        //txtPTG.setText(String.valueOf(entero));
+        Glucosa = entero;
 
     }
 
@@ -178,8 +182,7 @@ public class Registro implements Initializable
 
 
 
-
-                EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,TensionArterial,0);
+                EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,TensionArterial,Tension);
                 System.out.println(embten.toString());
                 stage1_controller_en_stage2.recibeparametros(embten);
                 Stage stage = (Stage) btnNext.getScene().getWindow();
@@ -187,7 +190,7 @@ public class Registro implements Initializable
             }
             if(radDiabetes.isSelected())
             {
-                EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()),0);
+                EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()),Glucosa);
                 System.out.println(embdia.toString());
                 stage1_controller_en_stage2.recibeparametros(embdia);
                 Stage stage = (Stage) btnNext.getScene().getWindow();

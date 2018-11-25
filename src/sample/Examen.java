@@ -1,9 +1,11 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Examen {
 
-    private String Nombre;
-    private String resultado;
+    private SimpleStringProperty Nombre;
+    private SimpleStringProperty resultado;
 
     Examen ()
     {
@@ -12,27 +14,32 @@ public class Examen {
 
     Examen(String pNombre, String presultado)
     {
-        Nombre = pNombre;
-        resultado = presultado;
+        Nombre = new SimpleStringProperty(pNombre);
+        resultado = new SimpleStringProperty(presultado);
     }
 
-    String getNombre ()
-    {
+    public String getNombre() {
+        return Nombre.get();
+    }
+
+    public SimpleStringProperty nombreProperty() {
         return Nombre;
     }
 
-    String getResultado ()
-    {
+    public void setNombre(String nombre) {
+        this.Nombre.set(nombre);
+    }
+
+    public String getResultado() {
+        return resultado.get();
+    }
+
+    public SimpleStringProperty resultadoProperty() {
         return resultado;
     }
 
-    public void setNombre (String pNombre)
-    {
-        Nombre = pNombre;
-    }
-    public void setResultado (String presultado)
-    {
-        resultado = presultado;
+    public void setResultado(String resultado) {
+        this.resultado.set(resultado);
     }
 
     public String toString()

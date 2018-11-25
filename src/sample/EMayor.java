@@ -1,15 +1,18 @@
 package sample;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.ArrayList;
 
 public class EMayor extends Embarazada {
 
-    String amneosentesis;
+
+    SimpleStringProperty amneosentesis;
 
     @Override
     public boolean getRiesgos ()
     {
-        return amneosentesis == "Positivo";
+        return amneosentesis.equals("Positivo");
     }
 
     EMayor ()
@@ -25,7 +28,7 @@ public class EMayor extends Embarazada {
     EMayor (String nombre, int hclinica, ArrayList <Examen> listexamen, String pamneosentesis )
     {
         super (nombre, hclinica, listexamen);
-        amneosentesis = pamneosentesis;
+        amneosentesis = new SimpleStringProperty(pamneosentesis);
     }
 
     public String getNombre ()
@@ -59,12 +62,16 @@ public class EMayor extends Embarazada {
     }
 
 
-    public String getAmneosentesis() {
+    public SimpleStringProperty amneosentesisProperty() {
         return amneosentesis;
     }
 
     public void setAmneosentesis(String amneosentesis) {
-        this.amneosentesis = amneosentesis;
+        this.amneosentesis.set(amneosentesis);
+    }
+
+    public String getAmneosentesis() {
+        return amneosentesis.get();
     }
 
     public String toString()

@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -81,8 +83,8 @@ public class Registro implements Initializable
     ObservableList<String> amneolist = FXCollections.observableArrayList("Positivo","Negativo");
     ObservableList<String> rutinalist = FXCollections.observableArrayList("Positivo","Negativo");
     ArrayList<Integer> TensionArterial = new ArrayList<>();
-    private int Glucosa;
-    private int Tension;
+    private float Glucosa;
+    private float Tension;
 
 
     //____________________________________Paso de Datos_________________________________________________________________
@@ -114,7 +116,7 @@ public class Registro implements Initializable
 
 
     @FXML
-    public void recibeparametrosten (Integer entero)
+    public void recibeparametrosten (float entero)
     {
         //txtTension.setText(String.valueOf(entero));
         Tension = entero;
@@ -145,7 +147,7 @@ public class Registro implements Initializable
 
 
     @FXML
-    public void recibeparametrosdia (Integer entero)
+    public void recibeparametrosdia (float entero)
     {
         //txtPTG.setText(String.valueOf(entero));
         Glucosa = entero;

@@ -1,11 +1,13 @@
 package sample;
 
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.ArrayList;
 
 public class EJoven extends Embarazada {
 
+    private SimpleIntegerProperty edad;
 
-    private int edad;
 
     EJoven()
     {
@@ -15,7 +17,7 @@ public class EJoven extends Embarazada {
     EJoven(String nombre, int hclinico, ArrayList <Examen> listexamen, int pedad)
     {
     super(nombre,hclinico,listexamen);
-        edad = pedad;
+        edad = new SimpleIntegerProperty(pedad);
     }
 
     public String getNombre ()
@@ -46,18 +48,24 @@ public class EJoven extends Embarazada {
         super.setListexamen(plistexamen);
     }
 
-    public int getEdad() {
-        return edad;
+    public void setEdad(int edad) {
+        this.edad.set(edad);
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public int getEdad() {
+        return edad.get();
+    }
+
+    public SimpleIntegerProperty edadProperty() {
+        return edad;
     }
 
     @Override
     public boolean getRiesgos ()
     {
-        return edad<=18 && edad >=16;
+        //edad.lessThanOrEqualTo(18);
+
+        return true ;
     }
 
     public String toString()

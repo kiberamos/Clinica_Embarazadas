@@ -1,13 +1,16 @@
 package sample;
 
-import java.beans.BeanProperty;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.ArrayList;
 
 public class EHipertension extends Embarazada implements ExamenesAdicionales {
 
    // private int TensionArterial;
     private ArrayList <Integer> TensionArterial = new ArrayList<>();
-    float pulsaciones;
+    SimpleFloatProperty pulsaciones;
+
 
 
     EHipertension()
@@ -19,7 +22,7 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
     {
         super(Nombre,Hclinica,listexamen);
         TensionArterial = pTensionArterial;
-        pulsaciones = ppulsaciones;
+        pulsaciones = new SimpleFloatProperty(ppulsaciones);
 
     }
 
@@ -40,13 +43,20 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
         TensionArterial = tensionArterial;
     }
 
+
+
     public float getPulsaciones() {
+        return pulsaciones.get();
+    }
+
+    public SimpleFloatProperty pulsacionesProperty() {
         return pulsaciones;
     }
 
     public void setPulsaciones(float pulsaciones) {
-        this.pulsaciones = pulsaciones;
+        this.pulsaciones.set(pulsaciones);
     }
+
 
     public void setNombre (String pnombre)
     {
@@ -80,13 +90,13 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
        //return TensionArterial > 90 ;
     }
 
-    public void agrExamen (float ppulsaciones)
+    public void agrExamen (SimpleFloatProperty ppulsaciones)
     {
         pulsaciones = ppulsaciones;
     }
 
     @Override
-    public float getagrExamen ()
+    public SimpleFloatProperty getagrExamen ()
     {
         return pulsaciones;
     }

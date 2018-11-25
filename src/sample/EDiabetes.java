@@ -1,11 +1,13 @@
 package sample;
 
+import javafx.beans.property.SimpleFloatProperty;
+
 import java.util.ArrayList;
 
-public class EDiabetes extends Embarazada implements ExamenesAdicionales {
+public class EDiabetes extends Embarazada{
 
-    private float PTG;
-    private float Glucosa;
+    private SimpleFloatProperty PTG;
+    private SimpleFloatProperty Glucosa;
 
     public EDiabetes ()
     {
@@ -15,8 +17,8 @@ public class EDiabetes extends Embarazada implements ExamenesAdicionales {
     public EDiabetes (String Nombre, int Hclinica, ArrayList <Examen> listexamen,float pPTG,float pGlucosa)
     {
         super (Nombre,Hclinica,listexamen);
-        PTG = pPTG;
-        Glucosa = pGlucosa;
+        PTG = new SimpleFloatProperty (pPTG);
+        Glucosa = new SimpleFloatProperty(pGlucosa);
 
     }
 
@@ -52,43 +54,52 @@ public class EDiabetes extends Embarazada implements ExamenesAdicionales {
         super.setListexamen(plistexamen);
     }
 
-    public void setPTG (float pPTG)
-    {
-        PTG = pPTG;
+    public float getPTG() {
+        return PTG.get();
     }
 
-    public float getPTG()
-    {
+    public SimpleFloatProperty PTGProperty() {
         return PTG;
     }
+
+    public void setPTG(float PTG) {
+        this.PTG.set(PTG);
+    }
+
 
     @Override
     public boolean getRiesgos ()
     {
-        return PTG > 4.4;
+        return true;
     }
 
-    @Override
+
     public void agrExamen (float pglucosa)
     {
-        Glucosa= pglucosa;
+
     }
 
-    @Override
-    public float getagrExamen ()
+
+    public SimpleFloatProperty getagrExamen ()
     {
         return Glucosa;
     }
 
+
     public float getGlucosa() {
+        return Glucosa.get();
+    }
+
+    public SimpleFloatProperty glucosaProperty() {
         return Glucosa;
     }
 
     public void setGlucosa(float glucosa) {
-        Glucosa = glucosa;
+        this.Glucosa.set(glucosa);
     }
 
-    @Override
+
+
     public String getCondicion(){return "Diabetica";}
 
     public String toString()

@@ -17,7 +17,7 @@
          <children>
             <Button layoutX="80.0" layoutY="139.0" mnemonicParsing="false" onAction="#llamar_stage2" text="Registro de Embarazadas" />
             <Button fx:id="btnExamenesA" layoutX="89.0" layoutY="205.0" mnemonicParsing="false" onAction="#instance" text="Examenes Adicionales" />
-            <Button fx:id="btnResultados" layoutX="70.0" layoutY="268.0" mnemonicParsing="false" onAction="#newpageResultados" text="Resultados de Emabarazadas" />
+            <Button fx:id="btnResultados" layoutX="70.0" layoutY="268.0" mnemonicParsing="false" onAction="#llamar_stageresultados" text="Resultados de Emabarazadas" />
             <Label layoutX="32.0" layoutY="57.0" text="Prevencion de Embarazadas" wrapText="true">
                <font>
                   <Font size="20.0" />

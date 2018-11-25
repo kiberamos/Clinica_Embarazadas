@@ -23,6 +23,12 @@ public class Controller implements Initializable {
 
     private ArrayList <Embarazada> emb = new ArrayList<>();
 
+    //__________________________________________Arrays para probar elprograma___________________________________________
+    private ArrayList <Integer> TensionArterial = new ArrayList<>();
+    private ArrayList <Examen> Examenes = new ArrayList<>();
+    //__________________________________________________________________________________________________________________
+
+
     @FXML
     private Button btnRegistro;
     @FXML
@@ -58,6 +64,24 @@ public class Controller implements Initializable {
         stage.show();
 
     }
+
+    @FXML
+    private void llamar_stageresultados() throws IOException
+    {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Resultados.fxml").openStream());
+        Resultados RegistroInstancia = (Resultados)loader.getController();
+
+        RegistroInstancia.recibeparametrosResEmb(Stage1controller,emb);
+        Scene scene = new Scene (root);
+        stage.setScene(scene);
+        stage.alwaysOnTopProperty();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+
+    }
+
 
 //________________________________________________Cambio de Pantallas___________________________________________________
 
@@ -117,6 +141,11 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        emb.add(new EDiabetes("Joel",1,Examenes,234,12));
+        emb.add(new EMayor("Nicole",2,Examenes,"Positivo"));
+        emb.add( new EHipertension("Juana",3,Examenes,TensionArterial,12));
+        emb.add(new EJoven("Paloma",4,Examenes,16));
 
         Stage1controller=this;
 

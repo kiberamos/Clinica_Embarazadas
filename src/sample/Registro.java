@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
@@ -37,6 +38,8 @@ public class Registro implements Initializable
     private Button btnagrEmbarazada;
     @FXML
     private Button btnShowexam;
+    @FXML
+    private Button btnAgregarTensiones;
     @FXML
     private RadioButton radMenor;
     @FXML
@@ -77,21 +80,94 @@ public class Registro implements Initializable
     ArrayList<Examen> exmas = new ArrayList();
     ObservableList<String> amneolist = FXCollections.observableArrayList("Positivo","Negativo");
     ObservableList<String> rutinalist = FXCollections.observableArrayList("Positivo","Negativo");
+    ArrayList<Integer> TensionArterial = new ArrayList<>();
 
 
     //____________________________________Paso de Datos_________________________________________________________________
 
         Controller stage1_controller_en_stage2;
+        Registro StageRcontroller;
 
         @FXML
         public void recibeparametros(Controller stage1,String texto)
         {
 
             txtNombre.setText(texto);
-            EHipertension embten = new EHipertension("Sebas",12,exmas,15);
+           // EHipertension embten = new EHipertension("Sebas",12,exmas,15,TensionArterial,1);
             //emb = embten;
             stage1_controller_en_stage2 = stage1;
         }
+
+        public void llenartensionArterial()
+        {
+
+            TensionArterial.add(Integer.parseInt(txtTension.getText()));
+
+            System.out.println(TensionArterial.toString());
+            System.out.println(TensionArterial.size());
+
+        }
+
+    //_______________Paso de Valores a Ventanas Modificado a Registro la embarazada con tension arterial________________
+
+
+    @FXML
+    public void recibeparametrosten (Integer entero)
+    {
+        txtTension.setText(String.valueOf(entero));
+
+    }
+
+    @FXML
+    private void llamar_Adicionales() throws IOException
+    {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Adicionales.fxml").openStream());
+        Adicionales RegistroInstancia = (Adicionales)loader.getController();
+
+
+        RegistroInstancia.recibeparametros(StageRcontroller,69);
+        Scene scene = new Scene (root);
+        stage.setScene(scene);
+        stage.alwaysOnTopProperty();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+
+    }
+
+
+
+    //_______________Paso de Valores a Ventanas Modificado a Registro la embarazada con diabetes________________________
+
+
+    @FXML
+    public void recibeparametrosdia (Integer entero)
+    {
+        txtPTG.setText(String.valueOf(entero));
+
+    }
+
+    @FXML
+    private void llamar_AdicionalesDiab() throws IOException
+    {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("AdicionalesD.fxml").openStream());
+        AdicionalesD RegistroInstancia = (AdicionalesD) loader.getController();
+
+
+        RegistroInstancia.recibeparametros(StageRcontroller,69);
+        Scene scene = new Scene (root);
+        stage.setScene(scene);
+        stage.alwaysOnTopProperty();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+
+    }
+
+
+    //_________________________________________Paso de Valores a Ventanas y cierra la ventana___________________________
 
         @FXML
         void cerrar()
@@ -99,9 +175,21 @@ public class Registro implements Initializable
 
             if(radTension.isSelected())
             {
-                EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtTension.getText()));
+
+
+
+
+                EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,TensionArterial,0);
                 System.out.println(embten.toString());
                 stage1_controller_en_stage2.recibeparametros(embten);
+                Stage stage = (Stage) btnNext.getScene().getWindow();
+                stage.close();
+            }
+            if(radDiabetes.isSelected())
+            {
+                EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()),0);
+                System.out.println(embdia.toString());
+                stage1_controller_en_stage2.recibeparametros(embdia);
                 Stage stage = (Stage) btnNext.getScene().getWindow();
                 stage.close();
             }
@@ -125,14 +213,7 @@ public class Registro implements Initializable
                 stage.close();
             }
 
-            if(radDiabetes.isSelected())
-            {
-                EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()));
-                System.out.println(embdia.toString());
-                stage1_controller_en_stage2.recibeparametros(embdia);
-                Stage stage = (Stage) btnNext.getScene().getWindow();
-                stage.close();
-            }
+
 
 
 
@@ -170,6 +251,7 @@ public class Registro implements Initializable
             lblTension.setVisible(true);
             lblTension2.setVisible(true);
             txtTension.setVisible(true);
+            btnAgregarTensiones.setVisible(true);
             //________________________________
             lbledad.setVisible(false);
             lbledad2.setVisible(false);
@@ -252,7 +334,7 @@ public class Registro implements Initializable
     {
         if(radTension.isSelected())
         {
-            EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtTension.getText()));
+            EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,TensionArterial,0);
             System.out.println(embten.toString());
         }
 
@@ -271,7 +353,7 @@ public class Registro implements Initializable
 
         if(radDiabetes.isSelected())
         {
-            EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()));
+            EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()),0);
             System.out.println(embdia.toString());
         }
     }
@@ -301,6 +383,7 @@ public class Registro implements Initializable
         radTension.setVisible(false);
         cmbExamnRutina.setItems(rutinalist);
         cmbAmeno.setItems(amneolist);
+        btnAgregarTensiones.setVisible(false);
 
 
 
@@ -312,6 +395,10 @@ public class Registro implements Initializable
 
         btnShowexam.setOnAction((event) -> {
             showexamenes();
+        });
+
+        btnAgregarTensiones.setOnAction((event) -> {
+            llenartensionArterial();
         });
 
     }
@@ -337,8 +424,14 @@ public class Registro implements Initializable
         radTension.setVisible(false);
         cmbExamnRutina.setItems(rutinalist);
         cmbAmeno.setItems(amneolist);
+        btnAgregarTensiones.setVisible(false);
+
+        StageRcontroller=this;
 
 
+        btnAgregarTensiones.setOnAction((event) -> {
+            llenartensionArterial();
+        });
 
 
         btnagrEmbarazada.setOnAction((event) -> {

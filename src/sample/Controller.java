@@ -59,6 +59,10 @@ public class Controller implements Initializable {
     }
 
 
+
+
+
+
 //________________________________________________Cambio de Pantallas___________________________________________________
 
     public void newpageRegistro(javafx.event.ActionEvent actionEvent) throws IOException {

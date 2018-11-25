@@ -12,10 +12,11 @@ public class EDiabetes extends Embarazada implements ExamenesAdicionales {
 
     }
 
-    public EDiabetes (String Nombre, int Hclinica, ArrayList <Examen> listexamen,int pPTG)
+    public EDiabetes (String Nombre, int Hclinica, ArrayList <Examen> listexamen,float pPTG,float pGlucosa)
     {
         super (Nombre,Hclinica,listexamen);
         PTG = pPTG;
+        Glucosa = pGlucosa;
 
     }
 
@@ -79,6 +80,14 @@ public class EDiabetes extends Embarazada implements ExamenesAdicionales {
         return Glucosa;
     }
 
+    public float getGlucosa() {
+        return Glucosa;
+    }
+
+    public void setGlucosa(float glucosa) {
+        Glucosa = glucosa;
+    }
+
     @Override
     public String getCondicion(){return "Diabetica";}
 
@@ -88,7 +97,7 @@ public class EDiabetes extends Embarazada implements ExamenesAdicionales {
 
         //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
 
-        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen PTG : " + getPTG();
+        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen PTG : " + getPTG() + "Valor del Examen Adicional: " + getGlucosa() ;
 
         return String;
     }

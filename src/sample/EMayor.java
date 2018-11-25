@@ -12,7 +12,14 @@ public class EMayor extends Embarazada {
     @Override
     public boolean getRiesgos ()
     {
-        return amneosentesis.equals("Positivo");
+        if (getAmneosentesis().equals("Positivo"))
+        {
+            return true;
+        }else{
+            return false;
+        }
+
+
     }
 
     EMayor ()

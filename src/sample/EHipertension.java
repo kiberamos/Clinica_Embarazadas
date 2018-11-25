@@ -86,6 +86,18 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
     @Override
     boolean getRiesgos ()
     {
+        for (int i = 0; i < getTensionArterial().size(); i++) {
+
+            if (getTensionArterial().get(i)>90)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+
+        }
+
         return true;
        //return TensionArterial > 90 ;
     }

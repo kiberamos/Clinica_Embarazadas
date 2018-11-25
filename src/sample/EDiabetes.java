@@ -70,7 +70,13 @@ public class EDiabetes extends Embarazada{
     @Override
     public boolean getRiesgos ()
     {
-        return true;
+        if (getPTG() > 4.4)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 

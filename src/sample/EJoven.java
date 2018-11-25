@@ -63,9 +63,14 @@ public class EJoven extends Embarazada {
     @Override
     public boolean getRiesgos ()
     {
-        //edad.lessThanOrEqualTo(18);
+        if (getEdad() > 15 && getEdad() < 19)
+        {
+            return true;
+        }else {
+            return false;
+        }
 
-        return true ;
+
     }
 
     public String toString()

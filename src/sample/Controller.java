@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     private ArrayList <Embarazada> emb = new ArrayList<>();
+    private ObservableList<Embarazada> Oemb = FXCollections.observableArrayList();
 
     //__________________________________________Arrays para probar elprograma___________________________________________
     private ArrayList <Integer> TensionArterial = new ArrayList<>();
@@ -43,6 +44,7 @@ public class Controller implements Initializable {
     public void recibeparametros (Embarazada embara)
     {
        // txtprueba.setText(texto);
+        Oemb.add(embara);
         emb.add(embara);
         System.out.println(emb.toString());
 
@@ -142,10 +144,14 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        emb.add(new EDiabetes("Joel",1,Examenes,234,12));
+        Examenes.add(new Examen("Especial","Positivo"));
+        Examenes.add(new Examen("Normal","Negativo"));
+        TensionArterial.add(100);
+
+        emb.add(new EDiabetes("Joel",1,Examenes,1,12));
         emb.add(new EMayor("Nicole",2,Examenes,"Positivo"));
         emb.add( new EHipertension("Juana",3,Examenes,TensionArterial,12));
-        emb.add(new EJoven("Paloma",4,Examenes,16));
+        emb.add(new EJoven("Paloma",4,Examenes,17));
 
         Stage1controller=this;
 

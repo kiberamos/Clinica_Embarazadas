@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultados">
+<AnchorPane prefHeight="426.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultados">
    <children>
       <Button fx:id="btnprueba" layoutX="67.0" layoutY="361.0" mnemonicParsing="false" onAction="#prueba" text="Try me" />
-      <TableView fx:id="tblvw" layoutX="258.0" prefHeight="400.0" prefWidth="342.0">
+      <TableView fx:id="tblvw" layoutX="258.0" prefHeight="426.0" prefWidth="381.0">
         <columns>
           <TableColumn fx:id="Nombrecolumn" prefWidth="66.0" text="Nombre" />
-          <TableColumn fx:id="Hclinicacolumn" prefWidth="119.0" text="# de Historia Clinica" />
-            <TableColumn fx:id="Examencolumn" prefWidth="156.0" text="Ultimo Examen" />
+          <TableColumn fx:id="Hclinicacolumn" prefWidth="134.0" text="# de Historia Clinica" />
+            <TableColumn fx:id="Examencolumn" prefWidth="180.0" text="Ultimo Examen" />
         </columns>
       </TableView>
       <Button fx:id="btnRiesgo" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#llenarlistaRiesgo" text="Mostrar Embarazadas en Riesgo" />
@@ -22,5 +22,9 @@
       <Label fx:id="lblRiesgo" layoutX="169.0" layoutY="46.0" text="0" />
       <Button fx:id="btnDiab" layoutX="26.0" layoutY="91.0" mnemonicParsing="false" onAction="#llenarlistaDiabeticas" text="Mostrar Embarazadas Diabeticas" />
       <Button fx:id="btnRiesmay" layoutX="11.0" layoutY="138.0" mnemonicParsing="false" onAction="#llenarlistariegomayores" prefHeight="45.0" prefWidth="219.0" text="Embarazadas en Riesgo con mas de 35 anos" wrapText="true" />
+      <Label layoutX="7.0" layoutY="190.0" text="Embarazadas en Riesgo mayores a 35 anos:" />
+      <Label fx:id="lblRiesgoMayor" layoutX="241.0" layoutY="191.0" text="0" />
+      <Button layoutX="50.0" layoutY="225.0" mnemonicParsing="false" onAction="#llamar_stageresultadosdiabetes" text="Embarazadas Diabeticas" />
+      <Button layoutX="71.0" layoutY="288.0" mnemonicParsing="false" onAction="#llamar_stageChequeosExtra" text="Chequeos Extra" />
    </children>
 </AnchorPane>

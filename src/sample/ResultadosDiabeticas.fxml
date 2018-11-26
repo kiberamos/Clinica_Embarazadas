@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResultadosDiabeticas">
+   <children>
+      <TableView fx:id="tblvw" prefHeight="400.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="Nombrecolumn" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="Hclinicacolumn" prefWidth="137.0" text="# de Historia Clinica" />
+            <TableColumn fx:id="Examencolumn" prefWidth="237.0" text="Ultimo Examen" />
+            <TableColumn fx:id="PTGcolumn" prefWidth="53.0" text="PTG" />
+            <TableColumn fx:id="Glucosacolumn" prefWidth="97.0" text="Glucosa" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

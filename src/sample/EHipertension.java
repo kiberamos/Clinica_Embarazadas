@@ -125,8 +125,16 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
 
         //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
 
-        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Tension Arterial: " + getTensionArterial() + "Valor del Examen Adicional: " + getPulsaciones();
+       // String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Tension Arterial: " + getTensionArterial() + "Examen Pulsaciones:  " + getPulsaciones() + "\n";
+        String = "Nombre de la Embarazada: " + getNombre() + " Examen de Glucosa: " + getPulsaciones()+ "\n" ;
+        return String;
+    }
 
+    public String toStringR()
+    {
+        String String;
+
+        String = "Nombre de la Embarazada: " + getNombre() + " Examen de Pulsaciones: " + getPulsaciones();
         return String;
     }
 

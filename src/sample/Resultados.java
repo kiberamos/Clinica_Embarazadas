@@ -1,6 +1,7 @@
 package sample;
 
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -9,11 +10,16 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class Resultados {
     ArrayList <Embarazada> emb = new ArrayList<>();
@@ -45,6 +51,8 @@ public class Resultados {
     private Button btnDiab;
     @FXML
     private Button btnRiesmay;
+    @FXML
+    private Label lblRiesgoMayor;
 
 
     Controller stage1_controller_en_stage2;
@@ -154,11 +162,55 @@ public class Resultados {
                 OembRiesgoMayor.add(Oemb.get(i));
             }
         }
-
+        lblRiesgoMayor.setText(String.valueOf(OembRiesgoMayor.size()));
         tblvw.setItems(OembRiesgoMayor);
     }
 
 
+
+    //________________________________________Paso de valores hacia Resultados Diabetes_________________________________
+
+    @FXML
+    private void llamar_stageresultadosdiabetes() throws IOException
+    {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("ResultadosDiabeticas.fxml").openStream());
+        ResultadosDiabeticas RegistroInstancia = (ResultadosDiabeticas) loader.getController();
+
+        RegistroInstancia.recibeparametros(stage1_controller_en_stage2,Oemb);
+        Scene scene = new Scene (root);
+        stage.setScene(scene);
+        stage.alwaysOnTopProperty();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+
+    }
+
+
+    //__________________________________________________________________________________________________________________
+
+    //___________________________________Paso de valores hacia Resultados Chequeos Extra________________________________
+
+    @FXML
+    private void llamar_stageChequeosExtra() throws IOException
+    {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Chequeosextra.fxml").openStream());
+        Chequeosextra RegistroInstanciach = (Chequeosextra) loader.getController();
+
+        RegistroInstanciach.recibeparametrosch(stage1_controller_en_stage2,Oemb);
+        Scene scene = new Scene (root);
+        stage.setScene(scene);
+        stage.alwaysOnTopProperty();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+
+    }
+
+
+    //__________________________________________________________________________________________________________________
 
 
 

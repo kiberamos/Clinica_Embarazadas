@@ -114,8 +114,17 @@ public class EDiabetes extends Embarazada{
 
         //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
 
-        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen PTG : " + getPTG() + "Valor del Examen Adicional: " + getGlucosa() ;
+       // String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen PTG : " + getPTG() + "Examen Glucosa: " + getGlucosa() + "\n" ;
+        String = "Nombre de la Embarazada: " + getNombre() + " Examen de Glucosa: " + getGlucosa()+ "\n" ;
 
+        return String;
+    }
+
+    public String toStringR()
+    {
+        String String;
+
+        String = "Nombre de la Embarazada: " + getNombre() + " Examen de Glucosa: " + getGlucosa();
         return String;
     }
 

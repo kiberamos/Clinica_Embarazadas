@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1440.0" y="1109.0">sample.AdicionalesD</node>
+    <node x="788.0" y="1756.0">sample.Main</node>
+    <node x="713.0" y="1109.0">sample.Examen</node>
+    <node x="0.0" y="0.0">sample.Registro</node>
+    <node x="646.0" y="444.0">sample.EHipertension</node>
+    <node x="1044.0" y="1109.0">sample.ResultadosDiabeticas</node>
+    <node x="0.0" y="1756.0">sample.Adicionales</node>
+    <node x="928.5" y="0.0">sample.Embarazada</node>
+    <node x="396.0" y="1109.0">sample.Controller</node>
+    <node x="1486.0" y="510.0">sample.EMayor</node>
+    <node x="399.0" y="1756.0">sample.Chequeosextra</node>
+    <node x="1115.0" y="433.0">sample.EDiabetes</node>
+    <node x="0.0" y="1109.0">sample.Resultados</node>
+    <node x="330.0" y="521.0">sample.EJoven</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sample.EHipertension" target="sample.Embarazada">
+      <point x="0.0" y="-246.5" />
+      <point x="870.5" y="413.0" />
+      <point x="1042.5" y="413.0" />
+      <point x="-38.0" y="191.5" />
+    </edge>
+    <edge source="sample.EJoven" target="sample.Embarazada">
+      <point x="0.0" y="-169.5" />
+      <point x="478.0" y="403.0" />
+      <point x="966.5" y="403.0" />
+      <point x="-114.0" y="191.5" />
+    </edge>
+    <edge source="sample.EMayor" target="sample.Embarazada">
+      <point x="0.0" y="-180.5" />
+      <point x="1644.5" y="403.0" />
+      <point x="1194.5" y="403.0" />
+      <point x="114.0" y="191.5" />
+    </edge>
+    <edge source="sample.EDiabetes" target="sample.Embarazada">
+      <point x="0.0" y="-257.5" />
+      <point x="1290.5" y="413.0" />
+      <point x="1118.5" y="413.0" />
+      <point x="38.0" y="191.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="806.0" y="628.5" />
+  <SelectedNodes>
+    <node>sample.EDiabetes</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

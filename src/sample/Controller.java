@@ -150,7 +150,7 @@ public class Controller implements Initializable {
 
         emb.add(new EDiabetes("Joel",1,Examenes,1,12));
         emb.add(new EMayor("Nicole",2,Examenes,"Positivo"));
-        emb.add( new EHipertension("Juana",3,Examenes,TensionArterial,12));
+        emb.add( new EHipertension("Juana",3,Examenes,TensionArterial,16));
         emb.add(new EJoven("Paloma",4,Examenes,17));
 
         Stage1controller=this;

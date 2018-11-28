@@ -93,10 +93,10 @@ public class Registro implements Initializable
         Registro StageRcontroller;
 
         @FXML
-        public void recibeparametros(Controller stage1,String texto)
+        public void recibeparametros(Controller stage1)
         {
 
-            txtNombre.setText(texto);
+           // txtNombre.setText(texto);
            // EHipertension embten = new EHipertension("Sebas",12,exmas,15,TensionArterial,1);
             //emb = embten;
             stage1_controller_en_stage2 = stage1;
@@ -179,47 +179,49 @@ public class Registro implements Initializable
         void cerrar()
         {
 
-            if(radTension.isSelected())
-            {
 
-
-
-                EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,TensionArterial,Tension);
-                System.out.println(embten.toString());
-                stage1_controller_en_stage2.recibeparametros(embten);
-                Stage stage = (Stage) btnNext.getScene().getWindow();
-                stage.close();
-            }
-            if(radDiabetes.isSelected())
-            {
-                EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()),Glucosa);
-                System.out.println(embdia.toString());
-                stage1_controller_en_stage2.recibeparametros(embdia);
-                Stage stage = (Stage) btnNext.getScene().getWindow();
-                stage.close();
+                if (radTension.isSelected()) {
+                    if (validateFieldsTension()) {
+                    EHipertension embten = new EHipertension(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, TensionArterial, Tension);
+                    System.out.println(embten.toString());
+                    stage1_controller_en_stage2.recibeparametros(embten);
+                    Stage stage = (Stage) btnNext.getScene().getWindow();
+                    stage.close();
+                }
             }
 
-            if(radMenor.isSelected())
-            {
-                EJoven embjov = new EJoven(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtEdad.getText()));
-                System.out.println(embjov.toString());
-                stage1_controller_en_stage2.recibeparametros(embjov);
-                Stage stage = (Stage) btnNext.getScene().getWindow();
-                stage.close();
-            }
-
-            if(radMayor.isSelected())
-            {
-                EMayor embmay =  new EMayor(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,cmbAmeno.getSelectionModel().getSelectedItem().toString());
-                // cmbAmeno.getValue()
-                System.out.println(embmay.toString());
-                stage1_controller_en_stage2.recibeparametros(embmay);
-                Stage stage = (Stage) btnNext.getScene().getWindow();
-                stage.close();
+                if (radDiabetes.isSelected()) {
+                    if (validateFieldsTension()) {
+                    EDiabetes embdia = new EDiabetes(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, Integer.parseInt(txtPTG.getText()), Glucosa);
+                    System.out.println(embdia.toString());
+                    stage1_controller_en_stage2.recibeparametros(embdia);
+                    Stage stage = (Stage) btnNext.getScene().getWindow();
+                    stage.close();
+                }
             }
 
 
+                if (radMenor.isSelected()) {
+                    if (validateFieldsMenor()) {
+                    EJoven embjov = new EJoven(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, Integer.parseInt(txtEdad.getText()));
+                    System.out.println(embjov.toString());
+                    stage1_controller_en_stage2.recibeparametros(embjov);
+                    Stage stage = (Stage) btnNext.getScene().getWindow();
+                    stage.close();
+                }
+            }
 
+
+                if (radMayor.isSelected()) {
+                    if (validateFieldsMayor()) {
+                    EMayor embmay = new EMayor(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, cmbAmeno.getSelectionModel().getSelectedItem().toString());
+                    // cmbAmeno.getValue()
+                    System.out.println(embmay.toString());
+                    stage1_controller_en_stage2.recibeparametros(embmay);
+                    Stage stage = (Stage) btnNext.getScene().getWindow();
+                    stage.close();
+                }
+            }
 
 
            // EHipertension embten = new EHipertension("Sebas",12,exmas,15);
@@ -232,6 +234,120 @@ public class Registro implements Initializable
 
     //____________________________________Se termina Paso de Datos______________________________________________________
 
+
+
+    public void checkletter()
+    {
+        txtNombre.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                txtNombre.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+
+        txtExamRutina.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\sa-zA-Z*")) {
+                txtExamRutina.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+            }
+        });
+
+    }
+
+    public void checknumber()
+    {
+        txtTension.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                txtTension.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
+        txtHclinica.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                txtHclinica.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
+        txtPTG.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                txtPTG.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
+        txtEdad.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                txtEdad.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
+    }
+
+    private boolean validateFields()
+    {
+        if(txtNombre.getText().isEmpty() || txtHclinica.getText().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Existen datos en blanco");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateFieldsTension()
+    {
+        if(txtTension.getText().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Existen datos en blanco cuando se intento crear una Embarazada con Hipertension");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateFieldsDiabetes()
+    {
+        if(txtPTG.getText().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Existen datos en blanco cuando se intento crear una Embarazada con Diabetes");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+    private boolean validateFieldsMenor()
+    {
+        if(txtEdad.getText().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Existen datos en blanco cuando se intento crear una Embarazada Menor");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateFieldsMayor()
+    {
+        if(cmbAmeno.getSelectionModel().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Existen datos en blanco cuando se intento crear una Embarazada Mayor");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
 
 
 
@@ -283,6 +399,7 @@ public class Registro implements Initializable
             lblPTG.setVisible(false);
             lblPTG2.setVisible(false);
             txtPTG.setVisible(false);
+            btnAgregarTensiones.setVisible(false);
 
 
 
@@ -302,6 +419,7 @@ public class Registro implements Initializable
             lblPTG.setVisible(false);
             lblPTG2.setVisible(false);
             txtPTG.setVisible(false);
+            btnAgregarTensiones.setVisible(false);
 
         }
         if(radDiabetes.isSelected())
@@ -321,6 +439,7 @@ public class Registro implements Initializable
             lbledad.setVisible(false);
             lbledad2.setVisible(false);
             txtEdad.setVisible(false);
+            btnAgregarTensiones.setVisible(false);
 
         }
     }
@@ -389,6 +508,8 @@ public class Registro implements Initializable
         cmbExamnRutina.setItems(rutinalist);
         cmbAmeno.setItems(amneolist);
         btnAgregarTensiones.setVisible(false);
+        checkletter();
+        checknumber();
 
 
 
@@ -400,6 +521,7 @@ public class Registro implements Initializable
 
         btnShowexam.setOnAction((event) -> {
             showexamenes();
+            validateFields();
         });
 
         btnAgregarTensiones.setOnAction((event) -> {
@@ -430,6 +552,8 @@ public class Registro implements Initializable
         cmbExamnRutina.setItems(rutinalist);
         cmbAmeno.setItems(amneolist);
         btnAgregarTensiones.setVisible(false);
+        checkletter();
+        checknumber();
 
         StageRcontroller=this;
 
@@ -444,7 +568,12 @@ public class Registro implements Initializable
         });
 
         btnShowexam.setOnAction((event) -> {
-            showexamenes();
+            if (validateFields())
+            {
+                showexamenes();
+            }
+
+
         });
     }
 }

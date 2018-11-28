@@ -58,7 +58,7 @@ public class Controller implements Initializable {
         AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Registro.fxml").openStream());
         Registro RegistroInstancia = (Registro)loader.getController();
 
-        RegistroInstancia.recibeparametros(Stage1controller,"Prueba");
+        RegistroInstancia.recibeparametros(Stage1controller);
         Scene scene = new Scene (root);
         stage.setScene(scene);
         stage.alwaysOnTopProperty();

@@ -132,7 +132,7 @@ public class Registro implements Initializable
         Adicionales RegistroInstancia = (Adicionales)loader.getController();
 
 
-        RegistroInstancia.recibeparametros(StageRcontroller,69);
+        RegistroInstancia.recibeparametros(StageRcontroller);
         Scene scene = new Scene (root);
         stage.setScene(scene);
         stage.alwaysOnTopProperty();
@@ -163,7 +163,7 @@ public class Registro implements Initializable
         AdicionalesD RegistroInstancia = (AdicionalesD) loader.getController();
 
 
-        RegistroInstancia.recibeparametros(StageRcontroller,69);
+        RegistroInstancia.recibeparametros(StageRcontroller);
         Scene scene = new Scene (root);
         stage.setScene(scene);
         stage.alwaysOnTopProperty();

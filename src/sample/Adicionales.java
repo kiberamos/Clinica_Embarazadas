@@ -27,10 +27,10 @@ public class Adicionales implements Initializable {
     Registro StageRcontroller;
 
     @FXML
-    public void recibeparametros(Registro stage1,Integer entero)
+    public void recibeparametros(Registro stage1)
     {
 
-        txtnumero.setText(String.valueOf(entero));
+        //txtnumero.setText(String.valueOf(entero));
         // EHipertension embten = new EHipertension("Sebas",12,exmas,15,TensionArterial,1);
         //emb = embten;
         stageRegistro_controller_en_stageAdicinoales = stage1;

@@ -220,6 +220,7 @@ public class Resultados {
 
         btnDiab.setVisible(false);
         btnRiesmay.setVisible(false);
+        btnprueba.setVisible(false);
 
 
         Nombrecolumn.setCellValueFactory(new PropertyValueFactory<Embarazada, String>("Nombre"));

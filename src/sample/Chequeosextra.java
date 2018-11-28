@@ -64,7 +64,7 @@ public class Chequeosextra implements Initializable {
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
-            txtextra.appendText("Hola" + "\n");
+            //txtextra.appendText("Hola" + "\n");
 
         }
     }

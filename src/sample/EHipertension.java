@@ -18,11 +18,20 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
 
     }
 
-    EHipertension(String Nombre, int Hclinica, ArrayList<Examen> listexamen, ArrayList<Integer> pTensionArterial, float ppulsaciones)
-    {
+    EHipertension(String Nombre, int Hclinica, ArrayList<Examen> listexamen, ArrayList<Integer> pTensionArterial, float ppulsaciones) throws MyException {
         super(Nombre,Hclinica,listexamen);
-        TensionArterial = pTensionArterial;
-        pulsaciones = new SimpleFloatProperty(ppulsaciones);
+        for (int i = 0; i < pTensionArterial.size(); i++) {
+        if (pTensionArterial.get(i) <= 0) {
+            throw new MyException("La presion Arterial no puede ser menor o igual a 0");
+            } else{
+            TensionArterial = pTensionArterial;
+            }
+        }
+        if (ppulsaciones <= 0){
+            throw new MyException("Las pulsaciones de una persona no pueden ser menor o igual a 0");
+        }else {
+            pulsaciones = new SimpleFloatProperty(ppulsaciones);
+        }
 
     }
 

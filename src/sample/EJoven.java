@@ -14,10 +14,16 @@ public class EJoven extends Embarazada {
 
     }
 
-    EJoven(String nombre, int hclinico, ArrayList <Examen> listexamen, int pedad)
+    EJoven(String nombre, int hclinico, ArrayList <Examen> listexamen, int pedad) throws MyException
     {
-    super(nombre,hclinico,listexamen);
-        edad = new SimpleIntegerProperty(pedad);
+        super(nombre, hclinico, listexamen);
+        if (pedad <= 0)
+        {
+            throw new MyException("Una persona no puede tener edad negativa o 0");
+        }else {
+
+            edad = new SimpleIntegerProperty(pedad);
+        }
     }
 
     public String getNombre ()

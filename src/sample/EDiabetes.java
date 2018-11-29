@@ -14,15 +14,19 @@ public class EDiabetes extends Embarazada{
 
     }
 
-    public EDiabetes (String Nombre, int Hclinica, ArrayList <Examen> listexamen,float pPTG,float pGlucosa)
-    {
-        super (Nombre,Hclinica,listexamen);
-        PTG = new SimpleFloatProperty (pPTG);
-        Glucosa = new SimpleFloatProperty(pGlucosa);
-
+    public EDiabetes (String Nombre, int Hclinica, ArrayList <Examen> listexamen,float pPTG,float pGlucosa) throws MyException {
+        super(Nombre, Hclinica, listexamen);
+        if (pPTG <= 0) {
+            throw new MyException("El PTG no puede ser menor o igual a 0");
+        } else {
+            PTG = new SimpleFloatProperty(pPTG);
+        }
+        if (pGlucosa <= 0) {
+            throw new MyException("La glucosa no puede ser menor o igual a 0");
+        } else {
+            Glucosa = new SimpleFloatProperty(pGlucosa);
+        }
     }
-
-
 
     public String getNombre ()
     {

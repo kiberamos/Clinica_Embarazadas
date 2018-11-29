@@ -182,8 +182,19 @@ public class Registro implements Initializable
 
                 if (radTension.isSelected()) {
                     if (validateFieldsTension()) {
-                    EHipertension embten = new EHipertension(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, TensionArterial, Tension);
-                    System.out.println(embten.toString());
+                        EHipertension embten = null;
+                        try {
+                            embten = new EHipertension(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, TensionArterial, Tension);
+                        } catch (MyException e) {
+
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Information Dialog");
+                            alert.setHeaderText(null);
+                            alert.setContentText(e.getMessage());
+                            alert.showAndWait();
+
+                        }
+                        System.out.println(embten.toString());
                     stage1_controller_en_stage2.recibeparametros(embten);
                     Stage stage = (Stage) btnNext.getScene().getWindow();
                     stage.close();
@@ -191,9 +202,18 @@ public class Registro implements Initializable
             }
 
                 if (radDiabetes.isSelected()) {
-                    if (validateFieldsTension()) {
-                    EDiabetes embdia = new EDiabetes(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, Integer.parseInt(txtPTG.getText()), Glucosa);
-                    System.out.println(embdia.toString());
+                    if (validateFieldsDiabetes()) {
+                        EDiabetes embdia = null;
+                        try {
+                            embdia = new EDiabetes(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, Integer.parseInt(txtPTG.getText()), Glucosa);
+                        } catch (MyException e) {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setHeaderText(null);
+                            alert.setTitle("Information Dialog");
+                            alert.setContentText(e.getMessage());
+                            alert.showAndWait();
+                        }
+                        System.out.println(embdia.toString());
                     stage1_controller_en_stage2.recibeparametros(embdia);
                     Stage stage = (Stage) btnNext.getScene().getWindow();
                     stage.close();
@@ -203,8 +223,17 @@ public class Registro implements Initializable
 
                 if (radMenor.isSelected()) {
                     if (validateFieldsMenor()) {
-                    EJoven embjov = new EJoven(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, Integer.parseInt(txtEdad.getText()));
-                    System.out.println(embjov.toString());
+                        EJoven embjov = null;
+                        try {
+                            embjov = new EJoven(txtNombre.getText(), Integer.valueOf(txtHclinica.getText()), exmas, Integer.parseInt(txtEdad.getText()));
+                        } catch (MyException e) {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Information Dialog");
+                            alert.setContentText(e.getMessage());
+                            alert.setHeaderText(null);
+                            alert.showAndWait();
+                        }
+                        System.out.println(embjov.toString());
                     stage1_controller_en_stage2.recibeparametros(embjov);
                     Stage stage = (Stage) btnNext.getScene().getWindow();
                     stage.close();
@@ -458,27 +487,27 @@ public class Registro implements Initializable
     {
         if(radTension.isSelected())
         {
-            EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,TensionArterial,0);
-            System.out.println(embten.toString());
+           // EHipertension embten = new EHipertension(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,TensionArterial,0);
+            //System.out.println(embten.toString());
         }
 
         if(radMenor.isSelected())
         {
-            EJoven embjov = new EJoven(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtEdad.getText()));
-            System.out.println(embjov.toString());
+            //EJoven embjov = new EJoven(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtEdad.getText()));
+            //System.out.println(embjov.toString());
         }
 
         if(radMayor.isSelected())
         {
-            EMayor embmay =  new EMayor(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,cmbAmeno.getSelectionModel().getSelectedItem().toString());
+            //EMayor embmay =  new EMayor(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,cmbAmeno.getSelectionModel().getSelectedItem().toString());
            // cmbAmeno.getValue()
-            System.out.println(embmay.toString());
+           // System.out.println(embmay.toString());
         }
 
         if(radDiabetes.isSelected())
         {
-            EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()),0);
-            System.out.println(embdia.toString());
+           // EDiabetes embdia = new EDiabetes(txtNombre.getText(),Integer.valueOf(txtHclinica.getText()),exmas,Integer.parseInt(txtPTG.getText()),0);
+           // System.out.println(embdia.toString());
         }
     }
 

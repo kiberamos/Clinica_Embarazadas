@@ -148,10 +148,22 @@ public class Controller implements Initializable {
         Examenes.add(new Examen("Normal","Negativo"));
         TensionArterial.add(100);
 
-        emb.add(new EDiabetes("Joel",1,Examenes,1,12));
+        try {
+            emb.add(new EDiabetes("Joel",1,Examenes,1,12));
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
         emb.add(new EMayor("Nicole",2,Examenes,"Positivo"));
-        emb.add( new EHipertension("Juana",3,Examenes,TensionArterial,16));
-        emb.add(new EJoven("Paloma",4,Examenes,17));
+        try {
+            emb.add( new EHipertension("Juana",3,Examenes,TensionArterial,16));
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
+        try {
+            emb.add(new EJoven("Paloma",4,Examenes,17));
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
 
         Stage1controller=this;
 

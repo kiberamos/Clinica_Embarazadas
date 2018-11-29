@@ -6,10 +6,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="426.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultados">
    <children>
-      <Button fx:id="btnprueba" layoutX="67.0" layoutY="361.0" mnemonicParsing="false" onAction="#prueba" text="Try me" />
+      <Button fx:id="btnprueba" layoutX="96.0" layoutY="366.0" mnemonicParsing="false" onAction="#prueba" text="Try me" />
       <TableView fx:id="tblvw" layoutX="258.0" prefHeight="426.0" prefWidth="381.0">
         <columns>
           <TableColumn fx:id="Nombrecolumn" prefWidth="66.0" text="Nombre" />

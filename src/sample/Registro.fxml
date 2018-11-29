@@ -14,7 +14,7 @@
       <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" layoutX="62.0" layoutY="14.0" prefHeight="55.0" prefWidth="445.0" text="Para Comenzar se necesita registrar a la Embaraza con su nombre y su numero de historial clinica seguido de los examenes de rutina que se haya realizado durante su estado gestional" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true" />
       <Label layoutX="62.0" layoutY="84.0" text="Nombre" />
       <Label layoutX="294.0" layoutY="84.0" text="# de Historia Clinica" />
-      <TextField fx:id="txtNombre" layoutX="121.0" layoutY="80.0" onAction="#checkletter" />
+      <TextField fx:id="txtNombre" layoutX="121.0" layoutY="80.0" />
       <TextField fx:id="txtHclinica" layoutX="410.0" layoutY="80.0" />
       <Text layoutX="241.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Examenes de Rutina" />
       <TextField fx:id="txtExamRutina" layoutX="210.0" layoutY="154.0" />

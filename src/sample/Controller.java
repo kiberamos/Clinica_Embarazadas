@@ -50,6 +50,8 @@ public class Controller implements Initializable {
 
     }
 
+
+
     @FXML
     private void llamar_stage2() throws IOException
     {
@@ -69,6 +71,23 @@ public class Controller implements Initializable {
 
     @FXML
     private void llamar_stageresultados() throws IOException
+    {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Resultados.fxml").openStream());
+        Resultados RegistroInstancia = (Resultados)loader.getController();
+
+        RegistroInstancia.recibeparametrosResEmb(Stage1controller,emb);
+        Scene scene = new Scene (root);
+        stage.setScene(scene);
+        stage.alwaysOnTopProperty();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+
+    }
+
+    @FXML
+    private void llamar_stageeditarEmb() throws IOException
     {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();

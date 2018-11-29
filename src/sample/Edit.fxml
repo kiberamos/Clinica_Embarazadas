@@ -1,51 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Edit">
+<AnchorPane prefHeight="921.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Edit">
    <children>
       <AnchorPane layoutX="-1.0" prefHeight="450.0" prefWidth="540.0">
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="tblvwjoven" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Nombrejovencolumn" onEditCommit="#changeNamejoven" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="Hclinicajovencolumn" onEditCommit="#changeClinicajoven" prefWidth="106.0" text="Historia Clinica" />
+                  <TableColumn fx:id="Examenjovencolumn" prefWidth="313.0" text="Lista de Examenes" />
+                  <TableColumn fx:id="Edadjovencolumn" onEditCommit="#changeedadjoven" prefWidth="45.0" text="Edad" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="540.0" layoutY="450.0" prefHeight="450.0" prefWidth="540.0">
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="tblvwTension" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Nombretencolumn" onEditCommit="#changeNameten" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="Hclinicatencolumn" onEditCommit="#changeClinicaten" prefWidth="95.0" text="Historia Clinica" />
+                  <TableColumn fx:id="Examentencolumn" prefWidth="205.0" text="Lista de Examenes" />
+                  <TableColumn fx:id="Tensiontencolumn" prefWidth="94.0" text="Tension Arterial" />
+                  <TableColumn fx:id="Pulsacionestencolumn" onEditCommit="#changetenPuls" prefWidth="70.0" text="Pulsaciones" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
       <AnchorPane layoutY="450.0" prefHeight="450.0" prefWidth="540.0">
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="tblvwDiabetica" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Nombrediacolumn" onEditCommit="#changeNamediabetes" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="Hclinicadiacolumn" onEditCommit="#changeClinicadiabetes" prefWidth="93.00003051757812" text="Historia Clinica" />
+                  <TableColumn fx:id="Examendiacolumn" prefWidth="262.0" text="Lista de Examenes" />
+                  <TableColumn fx:id="PTGdiacolumn" onEditCommit="#changePTGdiabetes" prefWidth="43.0" text="PTG" />
+                  <TableColumn fx:id="Glucosadiacolumn" onEditCommit="#changeglucosadiabetes" prefWidth="66.0" text="Glucosa" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="540.0" prefHeight="450.0" prefWidth="540.0">
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TableView fx:id="tblvwmayor" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Nombremayorcolumn" onEditCommit="#changeNamemayor" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="Hclinicamayorcolumn" onEditCommit="#changeClinicamayor" prefWidth="104.0" text="Historia Clinica" />
+                  <TableColumn fx:id="Examenmayorcolumn" prefWidth="268.0" text="Lista de Examenes" />
+                  <TableColumn fx:id="Amneosentesismayorcolumn" onEditCommit="#changeAmneomayor" prefWidth="92.0" text="Amenosentesis" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
+      <Button fx:id="btnclose" layoutX="1001.0" layoutY="898.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="25.0" prefWidth="79.0" text="Button" />
    </children>
 </AnchorPane>

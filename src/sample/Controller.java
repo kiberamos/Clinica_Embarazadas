@@ -50,7 +50,13 @@ public class Controller implements Initializable {
 
     }
 
-
+    @FXML
+    public void recibeparametroseditado(ObservableList oedit)
+    {
+        emb.clear();
+        emb.addAll(oedit);
+       // Stage1controller = stage1;
+    }
 
     @FXML
     private void llamar_stage2() throws IOException
@@ -91,10 +97,10 @@ public class Controller implements Initializable {
     {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Resultados.fxml").openStream());
-        Resultados RegistroInstancia = (Resultados)loader.getController();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Edit.fxml").openStream());
+        Edit RegistroInstancia = (Edit) loader.getController();
 
-        RegistroInstancia.recibeparametrosResEmb(Stage1controller,emb);
+        RegistroInstancia.recibeparametrosEdit(Stage1controller,emb);
         Scene scene = new Scene (root);
         stage.setScene(scene);
         stage.alwaysOnTopProperty();

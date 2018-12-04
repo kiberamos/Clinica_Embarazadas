@@ -5,9 +5,9 @@ import javafx.beans.property.SimpleFloatProperty;
 public interface ExamenesAdicionales {
 
 
-    public void agrExamen (SimpleFloatProperty value);
+    public void agrExamen (Float value);
 
-    SimpleFloatProperty getagrExamen ();
+    Float getagrExamen ();
 
     String getCondicion();
 

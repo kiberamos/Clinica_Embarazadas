@@ -259,7 +259,7 @@ public class Edit {
     public void changetenPuls(TableColumn.CellEditEvent edittedCell)
     {
         EHipertension personselected = (EHipertension) tblvwTension.getSelectionModel().getSelectedItem();
-        personselected.setPulsaciones(Integer.parseInt(edittedCell.getNewValue().toString()));
+        personselected.setPulsaciones(Float.parseFloat(edittedCell.getNewValue().toString()));
     }
 
 

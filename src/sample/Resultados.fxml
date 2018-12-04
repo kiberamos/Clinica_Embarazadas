@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="426.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultados">
+<AnchorPane prefHeight="426.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultados">
    <children>
-      <Button fx:id="btnprueba" layoutX="96.0" layoutY="366.0" mnemonicParsing="false" onAction="#prueba" text="Try me" />
+      <Button fx:id="btnprueba" layoutX="74.0" layoutY="364.0" mnemonicParsing="false" text="Archivo Binario" />
       <TableView fx:id="tblvw" layoutX="258.0" prefHeight="426.0" prefWidth="381.0">
         <columns>
           <TableColumn fx:id="Nombrecolumn" prefWidth="66.0" text="Nombre" />
@@ -16,7 +16,7 @@
             <TableColumn fx:id="Examencolumn" prefWidth="180.0" text="Ultimo Examen" />
         </columns>
       </TableView>
-      <Button fx:id="btnRiesgo" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#llenarlistaRiesgo" text="Mostrar Embarazadas en Riesgo" />
+      <Button fx:id="btnRiesgo" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" text="Mostrar Embarazadas en Riesgo" />
       <Label layoutX="27.0" layoutY="46.0" text="Embarazadas en Riesgo:" />
       <Label fx:id="lblRiesgo" layoutX="169.0" layoutY="46.0" text="0" />
       <Button fx:id="btnDiab" layoutX="26.0" layoutY="91.0" mnemonicParsing="false" onAction="#llenarlistaDiabeticas" text="Mostrar Embarazadas Diabeticas" />

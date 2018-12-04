@@ -3,13 +3,24 @@ package sample;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EHipertension extends Embarazada implements ExamenesAdicionales {
+public class EHipertension extends Embarazada implements ExamenesAdicionales, Serializable {
 
    // private int TensionArterial;
     private ArrayList <Integer> TensionArterial = new ArrayList<>();
-    SimpleFloatProperty pulsaciones;
+
+    public Float getPulsaciones() {
+        return pulsaciones;
+    }
+
+    public void setPulsaciones(Float pulsaciones) {
+        this.pulsaciones = pulsaciones;
+    }
+
+    //SimpleFloatProperty pulsaciones;
+    Float pulsaciones;
 
 
 
@@ -30,7 +41,8 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
         if (ppulsaciones <= 0){
             throw new MyException("Las pulsaciones de una persona no pueden ser menor o igual a 0");
         }else {
-            pulsaciones = new SimpleFloatProperty(ppulsaciones);
+            //pulsaciones = new SimpleFloatProperty(ppulsaciones);
+            pulsaciones = ppulsaciones;
         }
 
     }
@@ -52,7 +64,7 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
         TensionArterial = tensionArterial;
     }
 
-
+/*
 
     public float getPulsaciones() {
         return pulsaciones.get();
@@ -65,7 +77,7 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
     public void setPulsaciones(float pulsaciones) {
         this.pulsaciones.set(pulsaciones);
     }
-
+*/
 
     public void setNombre (String pnombre)
     {
@@ -110,14 +122,17 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
         return true;
        //return TensionArterial > 90 ;
     }
-
-    public void agrExamen (SimpleFloatProperty ppulsaciones)
+    @Override
+    public void agrExamen (Float ppulsaciones)
     {
         pulsaciones = ppulsaciones;
     }
 
+
+
+
     @Override
-    public SimpleFloatProperty getagrExamen ()
+    public Float getagrExamen ()
     {
         return pulsaciones;
     }
@@ -134,8 +149,8 @@ public class EHipertension extends Embarazada implements ExamenesAdicionales {
 
         //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
 
-       // String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Tension Arterial: " + getTensionArterial() + "Examen Pulsaciones:  " + getPulsaciones() + "\n";
-        String = "Nombre de la Embarazada: " + getNombre() + " Examen de Pulsaciones: " + getPulsaciones()+ "\n" ;
+        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Tension Arterial: " + getTensionArterial() + " Examen Pulsaciones:  " + getPulsaciones() + "\n";
+        //String = "Nombre de la Embarazada: " + getNombre() + " Examen de Pulsaciones: " + getPulsaciones()+ "\n" ;
         return String;
     }
 

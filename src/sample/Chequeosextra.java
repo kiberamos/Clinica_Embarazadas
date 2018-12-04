@@ -54,7 +54,6 @@ public class Chequeosextra implements Initializable {
 
             for (int i = 0; i < OembExtras.size(); i++) {
 
-
                   txtextra.appendText(OembExtras.get(i).toString());
 
 

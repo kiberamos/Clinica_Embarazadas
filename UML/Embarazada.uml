@@ -3,49 +3,51 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1440.0" y="1109.0">sample.AdicionalesD</node>
-    <node x="788.0" y="1756.0">sample.Main</node>
-    <node x="713.0" y="1109.0">sample.Examen</node>
+    <node x="1480.0" y="1263.0">sample.AdicionalesD</node>
+    <node x="389.0" y="1910.0">sample.Main</node>
     <node x="0.0" y="0.0">sample.Registro</node>
-    <node x="1038.0" y="444.0">sample.EHipertension</node>
-    <node x="1044.0" y="1109.0">sample.ResultadosDiabeticas</node>
-    <node x="0.0" y="1756.0">sample.Adicionales</node>
-    <node x="900.5" y="0.0">sample.Embarazada</node>
-    <node x="396.0" y="1109.0">sample.Controller</node>
-    <node x="330.0" y="510.0">sample.EMayor</node>
-    <node x="399.0" y="1756.0">sample.Chequeosextra</node>
-    <node x="667.0" y="433.0">sample.EDiabetes</node>
-    <node x="0.0" y="1109.0">sample.Resultados</node>
-    <node x="1507.0" y="521.0">sample.EJoven</node>
+    <node x="753.0" y="1263.0">sample.Examen</node>
+    <node x="1468.0" y="444.0">sample.EHipertension</node>
+    <node x="1084.0" y="1263.0">sample.ResultadosDiabeticas</node>
+    <node x="1879.0" y="1263.0">sample.Adicionales</node>
+    <node x="1330.5" y="0.0">sample.Embarazada</node>
+    <node x="1937.0" y="510.0">sample.EMayor</node>
+    <node x="396.0" y="1263.0">sample.Controller</node>
+    <node x="603.0" y="1910.0">sample.MyException</node>
+    <node x="1097.0" y="433.0">sample.EDiabetes</node>
+    <node x="0.0" y="1910.0">sample.Chequeosextra</node>
+    <node x="320.0" y="0.0">sample.Edit</node>
+    <node x="0.0" y="1263.0">sample.Resultados</node>
+    <node x="781.0000000000001" y="521.0">sample.EJoven</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="sample.EDiabetes" target="sample.Embarazada">
+      <point x="0.0" y="-257.5" />
+      <point x="1272.5" y="413.0" />
+      <point x="1444.5" y="413.0" />
+      <point x="-38.0" y="191.5" />
+    </edge>
     <edge source="sample.EHipertension" target="sample.Embarazada">
       <point x="0.0" y="-246.5" />
-      <point x="1262.5" y="413.0" />
-      <point x="1090.5" y="413.0" />
+      <point x="1692.5" y="413.0" />
+      <point x="1520.5" y="413.0" />
       <point x="38.0" y="191.5" />
     </edge>
     <edge source="sample.EJoven" target="sample.Embarazada">
       <point x="0.0" y="-169.5" />
-      <point x="1655.0" y="403.0" />
-      <point x="1166.5" y="403.0" />
-      <point x="114.0" y="191.5" />
+      <point x="929.0000000000001" y="403.0" />
+      <point x="1368.5" y="403.0" />
+      <point x="-114.0" y="191.5" />
     </edge>
     <edge source="sample.EMayor" target="sample.Embarazada">
       <point x="0.0" y="-180.5" />
-      <point x="488.5" y="403.0" />
-      <point x="938.5" y="403.0" />
-      <point x="-114.0" y="191.5" />
-    </edge>
-    <edge source="sample.EDiabetes" target="sample.Embarazada">
-      <point x="0.0" y="-257.5" />
-      <point x="842.5" y="413.0" />
-      <point x="1014.5" y="413.0" />
-      <point x="-38.0" y="191.5" />
+      <point x="2095.5" y="403.0" />
+      <point x="1596.5" y="403.0" />
+      <point x="114.0" y="191.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.4" x="304.7010073260062" y="1033.0654761904757" />
+  <settings layout="Hierarchic Group" zoom="0.8" x="817.5873015872985" y="655.4761904761883" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>

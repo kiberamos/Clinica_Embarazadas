@@ -1,11 +1,31 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
 
-public class Examen {
 
-    private SimpleStringProperty Nombre;
-    private SimpleStringProperty resultado;
+import java.io.Serializable;
+
+public class Examen implements Serializable {
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+    //private SimpleStringProperty Nombre;
+    //private SimpleStringProperty resultado;
+    private String Nombre;
+    private String resultado;
 
     Examen ()
     {
@@ -14,10 +34,12 @@ public class Examen {
 
     Examen(String pNombre, String presultado)
     {
-        Nombre = new SimpleStringProperty(pNombre);
-        resultado = new SimpleStringProperty(presultado);
+        //Nombre = new SimpleStringProperty(pNombre);
+        //resultado = new SimpleStringProperty(presultado);
+        Nombre = pNombre;
+        resultado = presultado;
     }
-
+/*
     public String getNombre() {
         return Nombre.get();
     }
@@ -41,7 +63,7 @@ public class Examen {
     public void setResultado(String resultado) {
         this.resultado.set(resultado);
     }
-
+*/
     public String toString()
     {
         String String;

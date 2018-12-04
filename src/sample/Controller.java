@@ -14,15 +14,17 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller implements Initializable, Serializable {
 
     private ArrayList <Embarazada> emb = new ArrayList<>();
     private ObservableList<Embarazada> Oemb = FXCollections.observableArrayList();
+    private ArrayList<Embarazada> Agenda;
+    private Embarazada Embacontacto;
 
     //__________________________________________Arrays para probar elprograma___________________________________________
     private ArrayList <Integer> TensionArterial = new ArrayList<>();
@@ -159,13 +161,99 @@ public class Controller implements Initializable {
                 System.out.println("no no lo se");
             }
         }
+    }
+/*
+    public void escribir_binario(){
+        File fichero = new File("Embarazadas.bin");
+        Agenda = new ArrayList();
+        Agenda.addAll(emb);
+        FileOutputStream fos;
+        ObjectOutputStream oos;
+        BufferedOutputStream fff;
+        OutputStreamWriter osw;
+        DataOutputStream dos;
+        try {
+            fos = new FileOutputStream(fichero,true);
+
+            oos = new ObjectOutputStream(fos);
+
+            dos = new DataOutputStream(fos);
+
+            //oos.writeUTF("hola"+Agenda.toString());
+            //dos.writeUTF(Agenda.toString());
+
+            //oos.writeUTF(Agenda.toString());
 
 
+            //oos.writeObject(emb);
+            oos.close();
 
+        } catch (FileNotFoundException e) {
+            System.out.println("Error en la localizacion del archivo");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error en la manipulacion del archivo");
+            e.printStackTrace();
+        }
 
     }
 
+    public void leer_binario(){
 
+        FileInputStream fis;
+        ObjectInputStream ois;
+        DataInputStream dis;
+        Agenda = new ArrayList();
+
+        try {
+            fis =  new FileInputStream("Embarazadas.bin");
+            ois =  new ObjectInputStream(fis);
+            dis =  new DataInputStream(fis);
+           // Agenda =  (ArrayList<Embarazada>) ois.readObject();
+            System.out.println("Listado de Embarazadas");
+            //System.out.println(ois.readUTF());
+            //System.out.println(dis.readUTF());
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no existe.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error en la manipulacion del archivo");
+            e.printStackTrace();
+        } //catch (ClassNotFoundException e) {
+            //System.out.println("Error no hay clase");
+            //e.printStackTrace();
+        //}
+
+    }
+
+    public void ListarDatos()
+    {
+        //System.out.println("Listado de Embarazadas");
+        System.out.println(Agenda.toString());
+        for (Embarazada Elemento:Agenda)
+        {
+
+            Embacontacto = new EJoven();
+//            Embacontacto = new Embarazada() {
+//                @Override
+//                boolean getRiesgos() {
+//                    return false;
+//                }
+//            };
+            Embacontacto = Elemento;
+            //MostrarDato();
+        }
+    }
+
+
+
+    public void MostrarDato()
+    {
+        System.out.println(Embacontacto.getNombre());
+    }
+
+*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -191,6 +279,18 @@ public class Controller implements Initializable {
         }
 
         Stage1controller=this;
+
+        btnResultados.setOnAction((event) -> {
+            try {
+                llamar_stageresultados();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            // escribir_binario();
+            //leer_binario();
+            //ListarDatos();
+
+        });
 
     }
 }

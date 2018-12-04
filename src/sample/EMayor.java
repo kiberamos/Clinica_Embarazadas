@@ -2,12 +2,22 @@ package sample;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EMayor extends Embarazada {
+public class EMayor extends Embarazada implements Serializable {
 
 
-    SimpleStringProperty amneosentesis;
+    public String getAmneosentesis() {
+        return amneosentesis;
+    }
+
+    public void setAmneosentesis(String amneosentesis) {
+        this.amneosentesis = amneosentesis;
+    }
+
+    //SimpleStringProperty amneosentesis;
+    String amneosentesis;
 
     @Override
     public boolean getRiesgos ()
@@ -35,7 +45,8 @@ public class EMayor extends Embarazada {
     EMayor (String nombre, int hclinica, ArrayList <Examen> listexamen, String pamneosentesis )
     {
         super (nombre, hclinica, listexamen);
-        amneosentesis = new SimpleStringProperty(pamneosentesis);
+        //amneosentesis = new SimpleStringProperty(pamneosentesis);
+        amneosentesis = pamneosentesis;
     }
 
     public String getNombre ()
@@ -68,7 +79,7 @@ public class EMayor extends Embarazada {
         super.setListexamen(plistexamen);
     }
 
-
+/*
     public SimpleStringProperty amneosentesisProperty() {
         return amneosentesis;
     }
@@ -80,6 +91,7 @@ public class EMayor extends Embarazada {
     public String getAmneosentesis() {
         return amneosentesis.get();
     }
+    */
 
     public String toString()
     {
@@ -87,7 +99,7 @@ public class EMayor extends Embarazada {
 
         //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
 
-        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen Amneosentesis : " + getAmneosentesis();
+        String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen Amneosentesis : " + getAmneosentesis() + "\n";
 
         return String;
     }

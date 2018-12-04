@@ -2,12 +2,33 @@ package sample;
 
 import javafx.beans.property.SimpleFloatProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EDiabetes extends Embarazada{
+public class EDiabetes extends Embarazada implements Serializable {
 
-    private SimpleFloatProperty PTG;
-    private SimpleFloatProperty Glucosa;
+//    private SimpleFloatProperty PTG;
+//    private SimpleFloatProperty Glucosa;
+
+    public Float getPTG() {
+        return PTG;
+    }
+
+    public void setPTG(Float PTG) {
+        this.PTG = PTG;
+    }
+
+
+    public Float getGlucosa() {
+        return Glucosa;
+    }
+
+    public void setGlucosa(Float glucosa) {
+        Glucosa = glucosa;
+    }
+
+    private Float PTG;
+    private Float Glucosa;
 
     public EDiabetes ()
     {
@@ -19,12 +40,14 @@ public class EDiabetes extends Embarazada{
         if (pPTG <= 0) {
             throw new MyException("El PTG no puede ser menor o igual a 0");
         } else {
-            PTG = new SimpleFloatProperty(pPTG);
+            //PTG = new SimpleFloatProperty(pPTG);
+            PTG = pPTG;
         }
         if (pGlucosa <= 0) {
             throw new MyException("La glucosa no puede ser menor o igual a 0");
         } else {
-            Glucosa = new SimpleFloatProperty(pGlucosa);
+            //Glucosa = new SimpleFloatProperty(pGlucosa);
+            Glucosa = pGlucosa;
         }
     }
 
@@ -58,6 +81,7 @@ public class EDiabetes extends Embarazada{
         super.setListexamen(plistexamen);
     }
 
+    /*
     public float getPTG() {
         return PTG.get();
     }
@@ -69,7 +93,7 @@ public class EDiabetes extends Embarazada{
     public void setPTG(float PTG) {
         this.PTG.set(PTG);
     }
-
+*/
 
     @Override
     public boolean getRiesgos ()
@@ -82,7 +106,7 @@ public class EDiabetes extends Embarazada{
             return false;
         }
     }
-
+/*
 
     public void agrExamen (float pglucosa)
     {
@@ -104,11 +128,13 @@ public class EDiabetes extends Embarazada{
         return Glucosa;
     }
 
+
+
     public void setGlucosa(float glucosa) {
         this.Glucosa.set(glucosa);
     }
 
-
+*/
 
     public String getCondicion(){return "Diabetica";}
 
@@ -118,8 +144,8 @@ public class EDiabetes extends Embarazada{
 
         //String = Integer.toString(getId()) + " " + getName() + " " + getClinicHistory() + " " + Integer.toString(getAge()) + " " + getDiabetes() + " " + Integer.toString(getBloodPreasure());
 
-       // String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen PTG : " + getPTG() + "Examen Glucosa: " + getGlucosa() + "\n" ;
-        String = "Nombre de la Embarazada: " + getNombre() + " Examen de Glucosa: " + getGlucosa()+ "\n" ;
+       String = "Nombre de Embarazada: " + getNombre() + " Numero de Clinica: " + getHclinica() + " Lista de Examenes: " + getListexamen() + " Examen PTG : " + getPTG() + " Examen Glucosa: " + getGlucosa() + "\n" ;
+        //String = "Nombre de la Embarazada: " + getNombre() + " Examen de Glucosa: " + getGlucosa()+ "\n" ;
 
         return String;
     }

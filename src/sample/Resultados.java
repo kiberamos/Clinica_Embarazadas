@@ -1,10 +1,11 @@
 package sample;
 
 import java.awt.*;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -12,25 +13,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class Resultados {
+public class Resultados implements Initializable, Serializable {
     ArrayList <Embarazada> emb = new ArrayList<>();
     ObservableList<Embarazada> Vacia = FXCollections.observableArrayList(emb);
     ObservableList<Embarazada> Oemb = FXCollections.observableArrayList(emb);
     ObservableList<Embarazada> OembRiesgo = FXCollections.observableArrayList(emb);
     ObservableList<Embarazada> OembDiab = FXCollections.observableArrayList(emb);
     ObservableList<Embarazada> OembRiesgoMayor = FXCollections.observableArrayList(emb);
-
-
+    private ArrayList<Embarazada> Agenda;
+    public ArrayList<EDiabetes> Diabetes = new ArrayList();
+    public ArrayList<Embarazada> Mayor = new ArrayList();
+    public ArrayList<Embarazada> Diabete = new ArrayList();
+    private Embarazada Embacontacto;
 
 
 
@@ -124,6 +128,7 @@ public class Resultados {
 
         btnDiab.setVisible(true);
         btnRiesmay.setVisible(true);
+
     }
 
     @FXML
@@ -140,10 +145,13 @@ public class Resultados {
             {
 
                 OembDiab.add(Oemb.get(i));
+                Diabetes.add((EDiabetes) Oemb.get(i));
             }
         }
 
         tblvw.setItems(OembDiab);
+
+
     }
 
     @FXML
@@ -165,7 +173,11 @@ public class Resultados {
         }
         lblRiesgoMayor.setText(String.valueOf(OembRiesgoMayor.size()));
         tblvw.setItems(OembRiesgoMayor);
+        System.out.println(OembDiab.toString());
+
     }
+
+
 
 
 
@@ -214,16 +226,69 @@ public class Resultados {
     //__________________________________________________________________________________________________________________
 
 
+    public void escribir_binario(){
+        File fichero = new File("Embarazadas.bin");
+        Agenda = new ArrayList();
+        Agenda.addAll(emb);
+        FileOutputStream fos;
+        ObjectOutputStream oos;
+
+        try {
+            fos = new FileOutputStream(fichero,true);
+
+            oos = new ObjectOutputStream(fos);
+
+           // oos.writeUTF();
+            oos.writeUTF(Oemb.toString()+"\n" + Diabetes.toString());
+
+            oos.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Error en la localizacion del archivo");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error en la manipulacion del archivo");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void leer_binario(){
+
+        FileInputStream fis;
+        ObjectInputStream ois;
+        DataInputStream dis;
+        Agenda = new ArrayList();
+
+        try {
+            fis =  new FileInputStream("Embarazadas.bin");
+            ois =  new ObjectInputStream(fis);
+
+
+            System.out.println("Listado de Embarazadas");
+            System.out.println(ois.readUTF());
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo no existe.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error en la manipulacion del archivo");
+            e.printStackTrace();
+        }
+
+    }
 
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
-    @FXML
-    void initialize() {
+        System.out.println(Oemb.toString());
 
         btnDiab.setVisible(false);
         btnRiesmay.setVisible(false);
-        btnprueba.setVisible(false);
+
 
 
         Nombrecolumn.setCellValueFactory(new PropertyValueFactory<Embarazada, String>("Nombre"));
@@ -231,6 +296,15 @@ public class Resultados {
         Examencolumn.setCellValueFactory(new PropertyValueFactory<Embarazada, String>("listexamen"));
         tblvw.setItems(Oemb);
 
+        btnRiesgo.setOnAction((event) -> {
+            llenarlistaRiesgo();
+        });
+
+        btnprueba.setOnAction((event) -> {
+
+            escribir_binario();
+            leer_binario();
+        });
 
     }
 }

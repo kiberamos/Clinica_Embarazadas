@@ -44,8 +44,10 @@ public class Resultados implements Initializable, Serializable {
     public ArrayList mayor =  new ArrayList();
     private Embarazada Embacontacto;
 
-    FicherosBinarios fb = new FicherosBinarios();
-
+    //FicherosBinarios fb = new FicherosBinarios();
+    //FileOutputStream fos = new FileOutputStream("Embarazadas.bin",true);
+    //ObjectOutputStream oos = new ObjectOutputStream(fos);
+    //FileInputStream fis =  new FileInputStream("Embarazadas.bin");
 
 
     @FXML
@@ -77,6 +79,9 @@ public class Resultados implements Initializable, Serializable {
 
 
     Controller stage1_controller_en_stage2;
+
+    public Resultados() throws IOException {
+    }
 
     @FXML
     public void recibeparametrosRes(Controller stage1,String texto)
@@ -310,66 +315,44 @@ public class Resultados implements Initializable, Serializable {
 
 
     //__________________________________________________________________________________________________________________
+    //___________________________________Paso de valores hacia Binario__________________________________________________
 
-/*
-    public void escribir_binario(){
-        File fichero = new File("Embarazadas.bin");
-        Agenda = new ArrayList();
-        Agenda.addAll(emb);
-        FileOutputStream fos;
-        ObjectOutputStream oos;
+    @FXML
+    private void llamar_stageBinarios() throws IOException
+    {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = (AnchorPane)loader.load(getClass().getResource("Binario.fxml").openStream());
+        Binario RegistroInstanciabr = (Binario) loader.getController();
 
-        try {
-            fos = new FileOutputStream(fichero,true);
-
-            oos = new ObjectOutputStream(fos);
-
-            oos.writeUTF("Bienvenido a la Lectura del Archivo Binario" + "\n" + "\n" + "\n"+
-                         "1) Cantidad de embarazadas que se consideran en riesgo: " + "\n" + NumerosRiesgo.toString() + "\n" + "\n"+
-                         "2) Obtener el listado de las embarazadas diabéticas:" + "\n" + Diabetes.toString() + "\n" + "\n"+
-                         "3) Del total de embarazadas en riesgo cuántas tienen más de 35 años: " + "\n" +  NumerosRiesgomay.toString() + "\n" + "\n" +
-                         "4) Obtener el número de historia clínica de la embarazada diabética con mayor PTG: "  + "\n" + mayor.toString() + "\n" + "\n" +
-                         "5) Imprimir el valor del chequeo extra realizado de todas las embarazadas del tipo diabética y de presión arterial alta:" + "\n" +  Extrass.toString() + "\n"
-            );
-           // oos.writeUTF();
-           // oos.writeUTF(Oemb.toString()+"\n" + Diabetes.toString());
-
-            oos.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Error en la localizacion del archivo");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("Error en la manipulacion del archivo");
-            e.printStackTrace();
-        }
+        RegistroInstanciabr.recibeparametrosbr(stage1_controller_en_stage2,Oemb);
+        Scene scene = new Scene (root);
+        stage.setScene(scene);
+        stage.alwaysOnTopProperty();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
 
     }
-*/
+
+
+    //__________________________________________________________________________________________________________________
+
+
+
     public void leer_binario(){
 
-        FileInputStream fis;
-        ObjectInputStream ois;
-        DataInputStream dis;
+        //FileInputStream fis;
+        //ObjectInputStream ois;
+        //DataInputStream dis;
         Agenda = new ArrayList();
         String str;
 
-        try {
-            fis =  new FileInputStream("Embarazadas.bin");
-            ois =  new ObjectInputStream(fis);
+        //ois =  new ObjectInputStream(fis);
 
 
-            System.out.println("Listado de Embarazadas");
-            System.out.println(ois.readUTF());
+        System.out.println("Listado de Embarazadas");
+        // System.out.println(ois.readUTF());
 
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Archivo no existe.");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("Error en la manipulacion del archivo");
-            e.printStackTrace();
-        }
 
     }
 
@@ -396,10 +379,23 @@ public class Resultados implements Initializable, Serializable {
 
         btnprueba.setOnAction((event) -> {
 
-            //escribir_binario();
-            //leer_binario();
-            fb.escribir_binario(NumerosRiesgo,Diabetes,NumerosRiesgomay,mayor,Extrass);
+            try {
+                llamar_stageBinarios();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            /*escribir_binario();
             leer_binario();
+            fb.escribir_binario(fos,oos,NumerosRiesgo,Diabetes,NumerosRiesgomay,mayor,Extrass);
+            try {
+                oos.flush();
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            leer_binario();
+            */
         });
 
         btncheck.setOnAction((event) -> {

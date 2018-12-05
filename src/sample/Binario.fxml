@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Binario">
+   <children>
+      <Button fx:id="btnclose" layoutX="46.0" layoutY="336.0" mnemonicParsing="false" text="Close binary" />
+      <Button fx:id="btnread" layoutX="152.0" layoutY="336.0" mnemonicParsing="false" text="Read File" />
+      <Button fx:id="btnP1" layoutX="50.0" layoutY="66.0" mnemonicParsing="false" text="Pregunta 1" />
+      <Button fx:id="btnP2" layoutX="50.0" layoutY="106.0" mnemonicParsing="false" text="Pregunta 2" />
+      <Button fx:id="btnP3" layoutX="50.0" layoutY="147.0" mnemonicParsing="false" text="Pregunta 3" />
+      <Button fx:id="btnP4" layoutX="50.0" layoutY="188.0" mnemonicParsing="false" text="Pregunta 4" />
+   </children>
+</AnchorPane>

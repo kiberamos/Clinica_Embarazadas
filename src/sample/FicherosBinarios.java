@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.scene.control.TextArea;
+
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -8,80 +11,68 @@ public class FicherosBinarios {
     public FicherosBinarios() {
     }
 
+    public void escribir_binario(ArrayList NumerosRiesgo,ArrayList Diabetes,ArrayList NumerosRiesgomay,ArrayList mayor,ArrayList Extrass){
+        File fichero = new File("Embarazadas.bin");
 
+        FileOutputStream fos;
+        ObjectOutputStream oos;
 
-    public void escribir_embarazada(ArrayList arr)
-    {
-        ArrayList aList = new ArrayList();
-        File file;
-        FileOutputStream fileOutputStream;
-        ObjectOutputStream objectOutputStream;
+        try {
+            fos = new FileOutputStream(fichero,true);
 
-        file = new File("Embarazadas.bin");
-        aList.addAll(arr);
+            oos = new ObjectOutputStream(fos);
 
+            oos.writeUTF("Bienvenido a la Lectura del Archivo Binario" + "\n" + "\n" + "\n"+
+                    "1) Cantidad de embarazadas que se consideran en riesgo: " + "\n" + NumerosRiesgo.toString() + "\n" + "\n"+
+                    "2) Obtener el listado de las embarazadas diabéticas:" + "\n" + Diabetes.toString() + "\n" + "\n"+
+                    "3) Del total de embarazadas en riesgo cuántas tienen más de 35 años: " + "\n" +  NumerosRiesgomay.toString() + "\n" + "\n" +
+                    "4) Obtener el número de historia clínica de la embarazada diabética con mayor PTG: "  + "\n" + mayor.toString() + "\n" + "\n" +
+                    "5) Imprimir el valor del chequeo extra realizado de todas las embarazadas del tipo diabética y de presión arterial alta:" + "\n" +  Extrass.toString() + "\n"
+            );
+            // oos.writeUTF();
+            // oos.writeUTF(Oemb.toString()+"\n" + Diabetes.toString());
 
+            oos.close();
 
-        String friend = " ";
+        } catch (FileNotFoundException e) {
+            System.out.println("Error en la localizacion del archivo");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Error en la manipulacion del archivo");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void leer_binario(){
+
+        FileInputStream fis;
+        ObjectInputStream ois;
+        DataInputStream dis;
 
 
         try {
-            fileOutputStream = new FileOutputStream(file);
-            objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            fis =  new FileInputStream("Embarazadas.bin");
+            ois =  new ObjectInputStream(fis);
 
-            int sz = aList.size();
 
-            for (int i = 0; i < sz; i++) {
+            System.out.println("Listado de Embarazadas");
+            System.out.println(ois.readUTF());
 
-                objectOutputStream.writeObject(aList.get(i).toString() + "\n");
-            }
+
+
+
         } catch (FileNotFoundException e) {
+            System.out.println("Archivo no existe.");
             e.printStackTrace();
-            System.out.println(e);
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println("Error en la manipulacion del archivo");
             e.printStackTrace();
         }
 
 
     }
 
-    public void leer_embarazada()
-    {
-        String line;
-        ArrayList aList = new ArrayList();
-
-        File file;
-        FileInputStream fileInputStream;
-        ObjectInputStream objectInputStream;
-
-        file = new File("Embarazadas.bin");
-
-
-        try {
-            fileInputStream = new FileInputStream(file);
-            objectInputStream = new ObjectInputStream(fileInputStream);
-            while (true)
-            {
-
-            }
-
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        for (int i = 0;i < aList.size(); i++)
-        {
-            System.out.println(aList.get(i).toString());
-        }
-
-
-    }
 
 
 }

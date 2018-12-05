@@ -277,6 +277,16 @@ public class Controller implements Initializable, Serializable {
         } catch (MyException e) {
             e.printStackTrace();
         }
+        try {
+            emb.add(new EDiabetes("Michaela",8,Examenes,6,12));
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
+        try {
+            emb.add(new EDiabetes("Daniela",11,Examenes,12,12));
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
 
         Stage1controller=this;
 

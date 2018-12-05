@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="426.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultados">
+<AnchorPane prefHeight="426.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultados">
    <children>
       <Button fx:id="btnprueba" layoutX="74.0" layoutY="364.0" mnemonicParsing="false" text="Archivo Binario" />
-      <TableView fx:id="tblvw" layoutX="258.0" prefHeight="426.0" prefWidth="381.0">
+      <TableView fx:id="tblvw" layoutX="258.0" prefHeight="541.0" prefWidth="555.0">
         <columns>
           <TableColumn fx:id="Nombrecolumn" prefWidth="66.0" text="Nombre" />
           <TableColumn fx:id="Hclinicacolumn" prefWidth="134.0" text="# de Historia Clinica" />
@@ -23,7 +24,8 @@
       <Button fx:id="btnRiesmay" layoutX="11.0" layoutY="138.0" mnemonicParsing="false" onAction="#llenarlistariegomayores" prefHeight="45.0" prefWidth="219.0" text="Embarazadas en Riesgo con mas de 35 anos" wrapText="true" />
       <Label layoutX="7.0" layoutY="190.0" text="Embarazadas en Riesgo mayores a 35 anos:" />
       <Label fx:id="lblRiesgoMayor" layoutX="241.0" layoutY="191.0" text="0" />
-      <Button layoutX="50.0" layoutY="225.0" mnemonicParsing="false" onAction="#llamar_stageresultadosdiabetes" text="Embarazadas Diabeticas" />
-      <Button layoutX="71.0" layoutY="288.0" mnemonicParsing="false" onAction="#llamar_stageChequeosExtra" text="Chequeos Extra" />
+      <Button fx:id="btnmayorptg" layoutX="50.0" layoutY="225.0" mnemonicParsing="false" onAction="#llamar_stageresultadosdiabetes" text="Embarazadas Diabeticas" />
+      <Button fx:id="btncheck" layoutX="71.0" layoutY="288.0" mnemonicParsing="false" text="Chequeos Extra" />
+      <TextArea fx:id="txtprp" layoutX="37.0" layoutY="400.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
